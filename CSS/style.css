@@ -1,0 +1,53 @@
+.navbar {
+    height: 60px;
+}
+
+.navbarx {
+    float: left;
+    display: flex;
+    margin-left: 700px;
+    margin-top: 20px;
+    list-style: none;
+}
+
+.navbaritem {
+    margin-left: 30px;
+}
+
+.list li {
+    color: black;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.list {
+    background-color: rgb(127, 198, 236);
+    border-radius: 30px;
+}
+
+.footer {
+    background-color: rgb(126, 126, 182);
+    height: 60px;
+}
+
+.box {
+    height: 2px;
+}
+
+label {
+    margin-bottom: 73px;
+}
+
+.kqdangki {
+    list-style: none;
+    display: flex;
+}
+
+.kqdangki li {
+    width: 25%;
+    font-weight: bold;
+}
+
+.doan {
+    border-radius: 50%;
+}

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../14_20089731_VuTienDuc_nhom1/CSS/bootstrap.min.css">
+    <script src="../14_20089731_VuTienDuc_nhom1/JS/jquery-3.6.0.min.js"></script>
+    <script src="../14_20089731_VuTienDuc_nhom1/JS/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    .header p {
+        text-align: center;
+    }
+    
+    li {
+        list-style: none;
+        float: left;
+    }
+    
+    .navbar-collapse {
+        display: flex;
+        justify-content: start;
+        height: 40px;
+    }
+    
+    .content h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+    
+    th {
+        width: 300px;
+        font-size: 18px;
+    }
+    
+    td {
+        font-size: 15px;
+    }
+</style>
+<script>
+    $(document).ready(function() {
+        var i = 1;
+        $("#btndangki").click(function() {
+            $("#mymodal").modal();
+        })
+        $("#txthoten").blur(function() {
+            let maukt = /(^[A-Z][a-z]+)(\s{1}[A-Z][a-z]+)+$/
+            let chuoi = $("#txthoten").val();
+            if (chuoi == "") {
+                $("#tbhoten").html("Không Được Rỗng")
+                return false;
+            }
+            if (maukt.test(chuoi) == false) {
+                $("#tbhoten").html("Chỉ dùng chữ hoa đầu từ không dùng số ")
+                return false;
+            }
+            $("#tbhoten").html("OK")
+            return true;
+        })
+        $("#txtscmnd").blur(function() {
+            let maukt = /(^[0-9][0-9]{2})((-)([0-9]{3})){2}$/
+            let chuoi = $("#txtscmnd").val();
+            if (chuoi == "") {
+                $("#tbscmnd").html("Không Được Rỗng")
+                return false;
+            }
+            if (maukt.test(chuoi) == false) {
+                $("#tbscmnd").html("Chỉ dùng 9 số")
+                return false;
+            }
+            $("#tbscmnd").html("OK")
+            return true;
+        })
+        $("#txtquequan").blur(function() {
+            let maukt = /(^[A-Z][a-z]+)(\s{1}[A-Z][a-z]+)+$/
+            let chuoi = $("#txtquequan").val();
+            if (chuoi == "") {
+                $("#tbquequan").html("Không Được Rỗng")
+                return false;
+            }
+            if (maukt.test(chuoi) == false) {
+                $("#tbquequan").html("Dùng chữ Hoa Đầu Từ")
+                return false;
+            }
+            $("#tbquequan").html("OK")
+            return true;
+        })
+        $("#txtemail").blur(function() {
+            let maukt = /(^[a-z][0-9a-z]{5})(@bc.com.vn)$/
+            let chuoi = $("#txtemail").val();
+            if (chuoi == "") {
+                $("#tbemail").html("Không Được Rỗng")
+                return false;
+            }
+            if (maukt.test(chuoi) == false) {
+                $("#tbemail").html("Nhập theo mẫu xxxxxx@bc.com.vn")
+                return false;
+            }
+            $("#tbemail").html("OK")
+            return true;
+        })
+        $("#txtsdt").blur(function() {
+            let maukt = /(^(09)[0-9]{2})((-)[0-9]{3}){2}$/
+            let chuoi = $("#txtsdt").val();
+            if (chuoi == "") {
+                $("#tbsdt").html("Không Được Rỗng")
+                return false;
+            }
+            if (maukt.test(chuoi) == false) {
+                $("#tbsdt").html("Dùng số 09 ở đầu vào 7 số theo sau")
+                return false;
+            }
+            $("#tbsdt").html("OK")
+            return true;
+        })
+        $("#xacnhandangki").click(function() {
+            var hoten = $("#txthoten").val();
+            var cmnd = $("#txtscmnd").val();
+            var quequan = $("#txtquequan").val();
+            var email = $("#txtemail").val();
+            var sdt = $("#txtsdt").val();
+            i = i + 1;
+            var dong = '<tr><td>' + i + '<td>' + hoten + '</td>' + '<td>' + cmnd + '<td>' + quequan + '<td>' + email + '<td>' + sdt + '<td>' + 'AnhMoi' + '</td></tr>';
+            $("#danhsach").append(dong);
+        })
+    })
+</script>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="background-color: aquamarine;">
+                <div class="col-md-3">
+                    <img src="../14_20089731_VuTienDuc_nhom1/Images/LOGO.jpg" alt="" height="100%" width="100%">
+                </div>
+                <div class="col-md-9">
+                    <div class="header">
+                        <p style="font-size: 25px;">BỘ CÔNG THƯƠNG</p>
+                        <p style="font-size: 25px;">TRƯỜNG ĐẠI HỌC CÔNG NGHIỆP TP. HỒ CHÍ MINH</p>
+                        <p style="color: red;">Đổi mới, nâng tầm cao mới - Năng động, hội nhập toàn cẩu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar-collapse">
+                    <ul class="navbar nav">
+                        <li class="navbar-item"><a href="#" class="navbar-link" id="">Đăng Nhập</a></li>
+                        <li class="navbar-item"><a href="#" class="navbar-link" id="btndangki">Đăng Kí</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="content">
+                    <h1>DANH SÁCH ĐĂNG KÍ LÀM CĂN CƯỚC SINH VIÊN</h1>
+                    <h1>TRƯỜNG DHCN THÀNH PHỐ HỒ CHÍ MINH</h1>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped" class="danhsach" id="danhsach" style="margin-top: 30px;">
+                    <tr>
+                        <th>STT</th>
+                        <th>Họ Tên</th>
+                        <th>SCMND Cũ</th>
+                        <th>Quên Quán</th>
+                        <th>Email</th>
+                        <th>Điện Thoại</th>
+                        <th>Ảnh Đại Diện</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Vũ Tiến Đức</td>
+                        <td>792020240</td>
+                        <td>BÌNH ĐỊNH</td>
+                        <td>vutienduc@gmail.com</td>
+                        <td>0902-491-471</td>
+                        <td>AnhMoi</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p style="text-align: center; margin-top: 30px;">SVTH : 14 Mã Sinh Viên : 20089731 Lớp DHKTPM16ETT</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" role="dialog" id="mymodal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    THÔNG TIN CÁ NHÂN
+                </div>
+                <div class="modal-body">
+                    <form action="" method="get" class="form-horizontal">
+                        <div class="form-group">
+                            <label for="">Họ Tên : </label>
+                            <input type="text" name="txthoten" id="txthoten" class="form-control" placeholder="Vu Tien Duc">
+                            <span id="tbhoten">*</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="">SCMND Cũ : </label>
+                            <input type="text" name="txtscmnd" id="txtscmnd" class="form-control" placeholder="xxx-xxx-xxx">
+                            <span id="tbscmnd">*</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Quê Quán :</label>
+                            <input type="text" name="txtquequan" id="txtquequan" class="form-control" placeholder="Binh Dinh">
+                            <span id="tbquequan">*</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Email :</label>
+                            <input type="email" name="txtemail" id="txtemail" class="form-control" placeholder="xxxxxx@bc.com.vn">
+                            <span id="tbemail">*</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Số Điện Thoại : </label>
+                            <input type="text" name="txtsdt" id="txtsdt" class="form-control" placeholder="09xx-xxx-xxx">
+                            <span id="tbsdt">*</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Ảnh Đại Diện : </label>
+                            <input type="file">
+                            <span>*</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button style="width: 100%; background-color: greenyellow; " id="xacnhandangki">Lưu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
